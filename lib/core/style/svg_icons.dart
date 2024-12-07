@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 @immutable
 sealed class SvgIcons {
+  static const SvgIcon appLogo = SvgIcon("assets/icons/app_logo.svg");
   static const SvgIcon sms = SvgIcon("assets/icons/SMS.svg");
   static const SvgIcon whatsApp = SvgIcon("assets/icons/WhatsApp.svg");
   static const SvgIcon arrowDown = SvgIcon("assets/icons/arrow-down.svg");

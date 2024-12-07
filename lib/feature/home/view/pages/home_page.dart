@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wise_app/core/style/app_colors.dart';
-import 'package:wise_app/core/style/app_images.dart';
 import 'package:wise_app/core/style/svg_icons.dart';
 import 'package:wise_app/data/entity/country_model.dart';
 import 'package:wise_app/data/entity/transaction_model.dart';
@@ -34,7 +33,15 @@ class HomePage extends ConsumerWidget {
                   CircleAvatar(
                     radius: 24.r,
                     backgroundColor: AppColors.c163300O08,
-                    backgroundImage: const AssetImage(AppImages.avatar8),
+                    child: Text(
+                      "MA",
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        color: AppColors.c163300,
+                        fontWeight: FontWeight.w900
+                      ),
+                    ),
                   ),
                   const Spacer(),
                   SizedBox(
@@ -63,7 +70,7 @@ class HomePage extends ConsumerWidget {
                   CircleAvatar(
                     radius: 24.r,
                     backgroundColor: AppColors.c163300O08,
-                    child: SvgIcons.notification,
+                    child: SvgIcons.eye,
                   ),
                 ],
               ),
@@ -76,22 +83,34 @@ class HomePage extends ConsumerWidget {
           32.verticalSpace,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Text(
-              "Account",
-              style: TextStyle(
-                fontFamily: "Inter",
-                fontSize: 30.sp,
-                fontWeight: FontWeight.w600
-              ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "Welcome to Wise",
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ),
+                CircleAvatar(
+                  radius: 24.r,
+                  backgroundColor: AppColors.c163300O08,
+                  child: SvgIcons.investments,
+                ),
+              ],
             ),
           ),
           26.verticalSpace,
           SizedBox(
-            height: 32.h,
+            height: 40.h,
             child: ListView.separated(
               itemCount: read.categories.length,
               scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, index) => 16.horizontalSpace,
+              separatorBuilder: (context, index) => 12.horizontalSpace,
               padding: EdgeInsets.symmetric(horizontal: 16.h),
               itemBuilder: (context, index) => InkWell(
                 onTap: () => read.switchCategoryIndex(index),
@@ -100,30 +119,31 @@ class HomePage extends ConsumerWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100.r),
-                    border: Border.all(
-                      width: 1,
-                      color: index == watch.currentCategoryIndex ? AppColors.c163300 : AppColors.c0E0F0C1F
-                    )
+                    color: index == watch.currentCategoryIndex ? AppColors.c9FE870 : AppColors.c0E0F0C1F
                   ),
                   child: Padding(
                     padding: REdgeInsets.symmetric(horizontal: 16),
-                    child: Center(
-                      child: Text(
-                        read.categories[index],
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontFamily: "Inter",
-                          color: AppColors.c163300,
-                          fontWeight: FontWeight.w600
+                    child: Row(
+                      children: [
+                        (read.categories[index].first as SvgIcon).style(dimension: 24.dg),
+                        10.horizontalSpace,
+                        Text(
+                          read.categories[index][1],
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontFamily: "Inter",
+                            color: AppColors.c163300,
+                            fontWeight: FontWeight.w600
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
           ),
-          26.verticalSpace,
+          20.verticalSpace,
           SizedBox(
             height: 208.h,
             child: ListView.separated(
@@ -152,10 +172,24 @@ class HomePage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CircleAvatar(
-                              radius: 24.r,
-                              backgroundColor: AppColors.c163300O08,
-                              child: model.flag,
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 24.r,
+                                  backgroundColor: AppColors.c163300O08,
+                                  child: model.flag,
+                                ),
+                                10.horizontalSpace,
+                                const Expanded(
+                                  child: Text(
+                                    "GBP",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                             const Spacer(),
                             Text(

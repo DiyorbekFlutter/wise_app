@@ -49,6 +49,7 @@ abstract class AppImages {
   static const String plane = "assets/images/illustrations/plane.png";
   static const String receive = "assets/images/illustrations/receive.png";
   static const String wiseCard = "assets/images/illustrations/wise-card.png";
+  static const String splashImage = "assets/images/splash_image.png";
 
   static const String fastFlag = "assets/images/logo/fast-flag.png";
   static const String fastFlag1 = "assets/images/logo/fast-flag-1.png";

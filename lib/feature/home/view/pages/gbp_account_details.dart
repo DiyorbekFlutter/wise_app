@@ -137,7 +137,7 @@ class GBPAccountDetails extends StatelessWidget {
                               ),
                             ),
                             for(var element in {
-                              "Account holder": "Miquel Giol Perez",
+                              "Account holder": "Michelle Agyaponma",
                               "Sort code": "23-08-01",
                               "Account number": "43800276",
                               "IBAN": "GBO8 TRWI 2308 0143 8002 76",

@@ -43,6 +43,8 @@ sealed class AppColors {
   static const Color c2F5711 = Color(0xFF2F5711); // Sentiment Positive
   static const Color cA8200D = Color(0xFFA8200D); // Sentiment Negative
 
+  static const Color c213210 = Color(0xFF213210);
+
   static const Color c0E0F0C1F = Color(0x0E0F0C1F);
   static const Color c0E0F0CO12 = Color.fromARGB(31, 14, 15, 12);
 }
